@@ -25,14 +25,15 @@ type Comment struct {
 func (RatingDetails RatingDetails) String() string {
 	return fmt.Sprintf("User: %v, Rating: %v, Comment: %v", RatingDetails.userId, RatingDetails.rating, RatingDetails.comment)
 }
+
 func (Comment Comment) String() string {
 	return fmt.Sprintf("Date: %v, Comment: %v", Comment.date, Comment.commentMsg)
 }
 
-func (r *Rating) AddRating(userId string, rating int, commentMsg string) error{
+func (r *Rating) AddRating(userId string, rating int, commentMsg string) error {
 
-	if(rating<0 || rating>5){
-		return fmt.Errorf("Invalid rating")
+	if rating < 0 || rating > 5 {
+		return fmt.Errorf("invalid rating")
 	}
 
 	r.rating = append(r.rating, RatingDetails{
@@ -43,17 +44,16 @@ func (r *Rating) AddRating(userId string, rating int, commentMsg string) error{
 			commentMsg: commentMsg,
 		},
 	})
-	r.averageRating = float64(SumRatings(r.rating)) / float64(len(r.rating))
 	return nil
-
 }
 
-func SumRatings(ratings []RatingDetails) int {
+func (r *Rating) AverageRating() {
 	total := 0
-	for _, rd := range ratings {
+	for _, rd := range r.rating {
 		total += rd.rating
 	}
-	return total
+	r.averageRating = float64(total) / float64(len(r.rating))
+
 }
 
 func convertRatingToStars(rating int) string {
