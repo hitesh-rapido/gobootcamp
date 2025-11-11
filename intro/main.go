@@ -29,8 +29,9 @@ func main() {
 		fmt.Println("Select the option: 1. Add Rating 2. View Rating 3. Exit")
 		var option int
 		fmt.Scanln(&option)
-		if option == 1 {
 
+		switch option {
+		case 1:
 			fmt.Println("Enter the product name:")
 			var productName string
 			fmt.Scanln(&productName)
@@ -54,8 +55,8 @@ func main() {
 			if e != nil {
 				fmt.Println(e)
 			}
-		}
-		if option == 2 {
+			
+		case 2: 
 			fmt.Println("Enter the product name:")
 			var productName string
 			fmt.Scanln(&productName)
@@ -65,9 +66,11 @@ func main() {
 			} else {
 				fmt.Println(productRatings[productName])
 			}
-		}
-		if option == 3 {
-			break
+		
+		case 3:
+			return
+		default:
+			fmt.Println("Invalid option")
 		}
 	}
 
