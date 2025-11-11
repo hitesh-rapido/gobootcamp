@@ -47,26 +47,29 @@ func main() {
 			fmt.Println("Enter the comment:")
 			var comment string
 			fmt.Scanln(&comment)
-
-			if productRatings[productName] == nil {
-				productRatings[productName] = &rating.Rating{}
+			r:= productRatings[productName]
+			if r == nil {
+				r = &rating.Rating{}
 			}
-			e := productRatings[productName].AddRating(userName, ratingValue, comment)
+			e := r.AddRating(userName, ratingValue, comment)
 			if e != nil {
 				fmt.Println(e)
 			}
-			
-		case 2: 
+			r.AverageRating()
+			productRatings[productName] = r
+
+		case 2:
 			fmt.Println("Enter the product name:")
 			var productName string
 			fmt.Scanln(&productName)
-			if productRatings[productName] == nil {
+			r:= productRatings[productName]
+			if r == nil {
 				fmt.Println("Product not found")
 
 			} else {
-				fmt.Println(productRatings[productName])
+				fmt.Println(r)
 			}
-		
+
 		case 3:
 			return
 		default:
