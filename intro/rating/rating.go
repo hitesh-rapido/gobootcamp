@@ -32,7 +32,7 @@ func (Comment Comment) String() string {
 
 func (r *Rating) AddRating(userId string, rating int, commentMsg string) error {
 
-	if rating < 0 || rating > 5 {
+	if rating < 1 || rating > 5 {
 		return fmt.Errorf("invalid rating")
 	}
 
