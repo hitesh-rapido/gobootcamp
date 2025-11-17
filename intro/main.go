@@ -7,23 +7,16 @@ import (
 	"github.com/fatih/color"
 )
 
+type CheckResult struct {
+	url    string
+	status string
+}
+
 func main() {
 
 	color.Red("Welcome to Product Review System\n")
 
 	productRatings := make(map[string]*rating.Rating)
-	//mapRating := &rating.Rating{}
-
-	// Initialize a rating aggregate and add entries
-
-	// e := mapRating.AddRating("Hitesh", 1, "Good product")
-
-	// e = mapRating.AddRating("Gaurav", 3, "Good product")
-	// if e != nil {
-	// 	fmt.Println(e)
-	// }
-	// mapRating.AverageRating()
-	// fmt.Println(mapRating)
 
 	for {
 		fmt.Println("Select the option: 1. Add Rating 2. View Rating 3. Exit")
@@ -47,7 +40,7 @@ func main() {
 			fmt.Println("Enter the comment:")
 			var comment string
 			fmt.Scanln(&comment)
-			r:= productRatings[productName]
+			r := productRatings[productName]
 			if r == nil {
 				r = &rating.Rating{}
 			}
@@ -62,7 +55,7 @@ func main() {
 			fmt.Println("Enter the product name:")
 			var productName string
 			fmt.Scanln(&productName)
-			r:= productRatings[productName]
+			r := productRatings[productName]
 			if r == nil {
 				fmt.Println("Product not found")
 
