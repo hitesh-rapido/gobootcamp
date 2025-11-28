@@ -71,7 +71,7 @@ func checkUrl(ctx context.Context, url string, wg *sync.WaitGroup, checkResult c
 		return
 	}
 	resp, err1 := http.DefaultClient.Do(req)
-	time.Sleep(2 * time.Second)
+	//time.Sleep(2 * time.Second)
 	if err1 != nil {
 		checkResult <- CheckResult{url: url, status: "DOWN"}
 		return

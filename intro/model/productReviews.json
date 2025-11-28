@@ -1,0 +1,16 @@
+
+{
+    "ProductId":[
+        {
+        "reviewId": "id",
+        "reviewComment":"Good product",
+        "rating":5,
+        "createdAt":"28-11-2025",
+        "createdBy": {
+            "userId": "123",
+            "userName": "John Doe",
+            "userEmail": "john.doe@example.com"
+        }
+        }
+    ]   
+}

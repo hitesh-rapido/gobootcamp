@@ -1,0 +1,23 @@
+{
+    "id": "1",
+    "name": "Iphone 11",
+    "price": 100.40,
+    "description": "Iphone 11 smartphone with 64GB storage and 4GB RAM",
+    "category": ["Electronics","Mobile Phones"],
+    "subCategory": ["iOS", "Smartphone"],  
+    "brand": "Apple",
+    "image":["image1.jpg", "image2.jpg", "image3.jpg"],
+    "sku":100,
+    "isActive": true,
+    "createdAt":"28-11-2025",
+    "updateAt":"28-11-2025",
+    "createdBy": "UserId"
+
+}
+
+
+
+
+
+
+
